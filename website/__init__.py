@@ -1,13 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-
-
-
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
-
-
 
 
 def create_app():
