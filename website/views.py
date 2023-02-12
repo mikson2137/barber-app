@@ -1,18 +1,20 @@
-# import uuid
-import shortuuid
-
 from flask import Blueprint, render_template, request, flash, redirect
 
 from website import db
-from website.models import Note
+from .models import Service
 
 views = Blueprint('views', __name__)
+
 
 @views.route('/')
 def index():
     return render_template("index.html")
 
 
-@views.errorhandler(404)
-def page_not_found():
-    return render_template('404.html'), 404
+@views.route('/rezerwacja', methods=['GET', 'POST'])
+def rezerwacja():
+    if request.method == "POST":
+        return render_template("resstep2.html")
+    else:
+        services = Service.query.all()
+        return render_template("reservation.html", services=services)

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Rezerwacja{% endblock %}
+
+{% block content %}
+    <br>
+    <ul class="list-group container-md">
+        <h1>Usługi</h1>
+        <br>
+        {% for service in services %}
+            <li class="list-group-item">
+                <div>
+                    <div>{{ service.service_name }}</div>
+                    <div class="float-end">
+                        <div class="container text-center float-end">
+                            <div class="row align-items-start">
+                                <div class="col">
+                                    <div class="fw-bold">{{ service.price }} zł</div>
+                                    <div style="font-size: 15px; color:#A9A9A9">{{ service.duration }} min</div>
+                                </div>
+                                <div class="col">
+                                    <form method="POST">
+                                        <button type="submit" style="background-color: #33B5BD; color: white;"
+                                                class="btn">
+                                            Umów
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
