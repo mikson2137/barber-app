@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Rezerwacja{% endblock %}
-
 {% block content %}
+
     <br>
+
     <ul class="list-group container-md">
         <h1>Usługi</h1>
         <br>
@@ -19,7 +20,9 @@
                                 </div>
                                 <div class="col">
                                     <form method="POST">
-                                        <button type="submit" style="background-color: #33B5BD; color: white;"
+                                        <input type="hidden" name="service_id" value="{{  services.index(service) + 1 }}">
+                                        <button type="submit"
+                                                style="background-color: #33B5BD; color: white;"
                                                 class="btn">
                                             Umów
                                         </button>
@@ -32,5 +35,8 @@
             </li>
         {% endfor %}
     </ul>
+
+
+
 {% endblock %}
 

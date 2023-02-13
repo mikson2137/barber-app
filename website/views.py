@@ -13,8 +13,12 @@ def index():
 
 @views.route('/rezerwacja', methods=['GET', 'POST'])
 def rezerwacja():
+    services = Service.query.all()
     if request.method == "POST":
-        return render_template("resstep2.html")
+        # Get data from form called name;
+        data = request.form.get("service_id")
+
+        return render_template("reservation2.html", service=Service.query.get(int(data)))
     else:
-        services = Service.query.all()
-        return render_template("reservation.html", services=services)
+
+        return render_template("reservation.html", services=services, show_modal=False)
